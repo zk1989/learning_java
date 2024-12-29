@@ -1,0 +1,2 @@
+Here you will find solutions to the tasks, homeworks and small projects done while learning Java on a postgraduate course at one of the Krakow universities.
+As agreed with the course organiser, I can't disclose the instructions or the details of the course. Hence the solutions only - just to show my progress.
