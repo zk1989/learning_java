@@ -1,4 +1,4 @@
-public class App {
+public class Algorithms {
     public static void main(String[] args) throws Exception {
         System.out.println("Euclidean Algorithm, GCD for 10 and 20: " + euclideanAlgorithm(10, 20));
         System.out.println("Euclidean Algorithm, GCD for 5 and 100: " + euclideanAlgorithm(5, 100));
@@ -158,9 +158,9 @@ public class App {
             }
             swapValues(leftPointer, rightPointer, table);
         }
-        swapValues(pivot, rightPointer, table);
+        swapValues(leftPointer, pivot, table);
 
-        quickSort(0, leftPointer - 1, table);
-        quickSort(rightPointer + 1, table.length - 1, table);
+        quickSort(startIndex, leftPointer - 1, table);
+        quickSort(leftPointer + 1, pivot, table);
     }
 }

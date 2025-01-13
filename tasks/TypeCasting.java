@@ -1,6 +1,6 @@
-// type casting (rzutowanie) - applies only to primitve types
+// type casting (rzutowanie) - applies only to primitive types
 
-public class Triangle {
+public class TypeCasting {
     public static void main(String[] args) {
         int a = 5;
         int h = 3;
