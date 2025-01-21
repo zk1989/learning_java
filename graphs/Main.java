@@ -22,8 +22,9 @@ public class Main {
         Graph graph = new Graph();
         graph.createGraph();
 
-        System.out.println();
-        System.out.println("Dijkstra algorithm:");
-        graph.dijkstraAlgorithm("0", "4");
+//        System.out.println();
+//        System.out.println("Dijkstra algorithm:");
+//        graph.dijkstraAlgorithm("0", "4");
+
     }
 }

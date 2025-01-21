@@ -1,5 +1,4 @@
 import java.util.*;
-import java.util.stream.Collectors;
 
 
 public class Graph {
@@ -99,8 +98,7 @@ public class Graph {
     public void recursiveDfs(String rootVertex) {
         System.out.print(rootVertex + ", ");
         ArrayList<Edge> edges_list = edges.get(rootVertex);
-        for (int i = 0; i < edges_list.size(); i++) {
-            Edge edge = edges_list.get(i);
+        for (Edge edge : edges_list) {
             recursiveDfs(edge.getVertex());
         }
     }
@@ -142,45 +140,65 @@ public class Graph {
         recursiveBfs(queue);
     }
 
+//    public void callDijkstraAlgorithm(String wierzcholekPoczatkowy, String wierzcholekDocelowy) {
+//        // zbior Q z nieprzejrzanymi wierzcholkami - na poczatku zawiera wszystkie wierzcholki grafu
+//        Set<String> Q = new HashSet<>();
+//        Q.addAll(edges.keySet());
+//
+//        dijkstraAlgorithm();
+//
+//    }
 
-    public void dijkstraAlgorithm(String rootVertex, String destination) {
-        // zbior Q z nieprzejrzanymi wierzcholkami - na poczatku zawiera wszystkie wierzcholki graphu
-        Set<String> Q = new HashSet<>();
-        Q.addAll(edges.keySet());
+    // mapa graf powie nam ktory element usunac ze zbioru Q
+//    public void dijkstraAlgorithm(String wierzcholekPoczatkowy, String wierzcholekDocelowy) {
+//        // zbior Q z nieprzejrzanymi wierzcholkami - na poczatku zawiera wszystkie wierzcholki grafu
+//        Set<String> Q = new HashSet<>();
+//        Q.addAll(edges.keySet());
 
-        // mapa koszty powie nam ktory element usunac ze zbioru Q
-        // na poczatku algorytmu kazdy wierzcholek inny niz zrodlowy ma koszt dotarcia nieskonczonosc
-        HashMap<String, Integer> koszty = new HashMap<>();
-        for (String wierzcholek : Q) {
-            koszty.put(wierzcholek, Integer.MAX_VALUE);
-        }
-        // na poczatku algorytmu dla wierzcholka zrodlowego koszt dotarcia wynosi 0
-        koszty.put(rootVertex, 0);
+        // W trakcie wykonywania algorytmu dla każdego wierzchołka zostają wyznaczone dwie
+        // wartości: koszt dotarcia do tego wierzchołka oraz poprzedni wierzchołek na ścieżce.
+        // HashMap<Wierzcholek, HashMap<KosztDotarciaDoTegoWierzcholka, PoprzedniWierzcholekNaSciezce>>
+//        HashMap<String, HashMap<Integer, String>> graf = new HashMap<>();
+//        HashMap<Integer, String> kosztyDotarciaIPoprzednik;
+
+//        for (String wierzcholek : Q) {
+//            if (wierzcholek.equals(wierzcholekPoczatkowy)) {
+//                // na poczatku algorytmu dla wierzcholka poczatkowego koszt dotarcia wynosi 0
+//                kosztyDotarciaIPoprzednik = new HashMap<>();
+//                kosztyDotarciaIPoprzednik.put(0, "");
+//                graf.put(wierzcholek, kosztyDotarciaIPoprzednik);
+//            } else {
+//                // na poczatku algorytmu kazdy wierzcholek inny niz zrodlowy ma koszt dotarcia nieskonczonosc
+//                kosztyDotarciaIPoprzednik = new HashMap<>();
+//                kosztyDotarciaIPoprzednik.put(Integer.MAX_VALUE, "");
+//                graf.put(wierzcholek, kosztyDotarciaIPoprzednik);
+//            }
+//        }
 
         // wybieranie wierzcholka o najmniejszym koszcie dotarcia
-        String wierzcholekONajmniejszymKoszcieDotarcia = "";
-        Integer najmniejszyKosztDotarcia = Integer.MAX_VALUE;
-        for (String koszt : koszty.keySet()) {
-            Integer kosztDotarcia = koszty.get(koszt);
-            if (kosztDotarcia < najmniejszyKosztDotarcia) {
-                najmniejszyKosztDotarcia = kosztDotarcia;
-                wierzcholekONajmniejszymKoszcieDotarcia = koszt;
-            }
-        }
-
-        while (!Q.isEmpty()) {
-            String v = wierzcholekONajmniejszymKoszcieDotarcia;
-            Q.remove(v);
-            for (Edge k : edges.get(v)) {
-                String u = k.getVertex();
-                int kosztDotarciaZKDoUPoprzezK = k.getWeight();
-                if (kosztDotarciaZKDoUPoprzezK < koszty.get(u)) {
-                    int kosztDotarciaDoV = koszty.get(v);
-                    int suma = kosztDotarciaZKDoUPoprzezK + kosztDotarciaDoV;
-                    koszty.put(u, suma);
-                }
-            }
-        }
-        dijkstraAlgorithm(wierzcholekONajmniejszymKoszcieDotarcia, rootVertex);
-    }
+//        String wierzcholekONajmniejszymKoszcieDotarcia = "";
+//        Integer najmniejszyKosztDotarcia = Integer.MAX_VALUE;
+//        for (String wierzcholek : graf.keySet()) {
+//            HashMap<Integer, String> kosztyDotarciaIPoprzednik2 = graf.get(wierzcholek);
+//            if (kosztyDotarciaIPoprzednik2.getKey() < najmniejszyKosztDotarcia) {
+//                najmniejszyKosztDotarcia = kosztDotarcia;
+//                wierzcholekONajmniejszymKoszcieDotarcia = wierzcholek;
+//            }
+//        }
+//
+//        while (!Q.isEmpty()) {
+//            String v = wierzcholekONajmniejszymKoszcieDotarcia;
+//            Q.remove(v);
+//            for (Edge k : edges.get(v)) {
+//                String u = k.getVertex();
+//                int kosztDotarciaZKDoUPoprzezK = k.getWeight();
+//                if (kosztDotarciaZKDoUPoprzezK < graf.get(u)) {
+//                    int kosztDotarciaDoV = graf.get(v);
+//                    int suma = kosztDotarciaZKDoUPoprzezK + kosztDotarciaDoV;
+//                    graf.put(u, suma);
+//                }
+//            }
+//        }
+//        dijkstraAlgorithm(wierzcholekONajmniejszymKoszcieDotarcia, wierzcholekPoczatkowy);
+//    }
 }
