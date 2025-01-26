@@ -11,7 +11,7 @@ import java.text.SimpleDateFormat;
 
 public class Main {
 
-	public static void main(String args[]) throws Exception {
+	public static void main(String[] args) throws Exception {
 		System.out.println("Listowanie proste:");
 		printFilesSimple("/");
 		System.out.println("\n\nListowanie szczegółowe:");
@@ -22,13 +22,13 @@ public class Main {
 
 
 	public static void printFilesSimple(String path) {
-		File folder = new File(path);
-		File[] listOfFiles = folder.listFiles();
+        File folder = new File(path);
+        File[] listOfFiles = folder.listFiles();
 
-		for (File file : listOfFiles) {
-			System.out.printf(file.getName() + ", ");
-		}
-	}
+        for (File file : listOfFiles) {
+            System.out.println(file.getName());
+        }
+    }
 
 	public static void printFilesDetails(String path) throws Exception {
 		File folder = new File(path);
