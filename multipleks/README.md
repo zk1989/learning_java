@@ -1,1 +1,1 @@
-[multiplex.drawio](multiplex.drawio)
+![multiplex.png](multiplex.png)
