@@ -3,8 +3,8 @@ package zadanie2;
 import java.io.IOException;
 import java.util.Scanner;
 
-import static zadanie2.AddFile.makeFile;
-import static zadanie2.AddFolder.makeFolders;
+import static zadanie2.File.makeFile;
+import static zadanie2.Folder.makeFolders;
 import static zadanie2.Details.printFilesDetails;
 import static zadanie2.FolderTree.printTree;
 import static zadanie2.List.printFilesSimple;

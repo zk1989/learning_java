@@ -29,7 +29,7 @@ public class MinesweeperApp {
                     }
                     b1 = b1 + str;
                 }
-                MinesweeperBoard board = reader.read(b1, height, width);
+                MinesweeperBoard board = reader.read(b1, width, height);
                 MinesweeperAnalyser analyser = new MinesweeperAnalyser();
                 analyser.fillIn(board);
                 System.out.println("Dziekuje. Wypelniona tablica wyglada nastepujaco: \n" + board);

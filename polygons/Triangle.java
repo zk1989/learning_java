@@ -1,19 +1,17 @@
+import java.util.List;
+
 public class Triangle extends Polygon {
 
-    private int a;
-    private int b;
-    private int c;
-
-    public Triangle(int a, int b, int c) {
-        this.a = a;
-        this.b = b;
-        this.c = c;
-        sides.add(a);
-        sides.add(b);
-        sides.add(c);
+    public Triangle(List<Integer> sides) {
+        super(sides);
     }
 
+    @Override
     public double surface() {
+        int a = sides.get(0);
+        int b = sides.get(1);
+        int c = sides.get(2);
+
         int p = (a + b + c) / 2;
         return Math.sqrt(p*(p-a)*(p-b)*(p-c));
     }

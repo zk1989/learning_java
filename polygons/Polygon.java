@@ -1,7 +1,13 @@
-import java.util.ArrayList;
+import java.util.List;
+
 
 public abstract class Polygon {
-    public ArrayList<Integer> sides = new ArrayList<>();
+
+    protected List<Integer> sides;
+
+    public Polygon(List<Integer> sides) {
+        this.sides = sides;
+    }
 
     public int perimeter() {
         int sum = 0;
@@ -12,4 +18,5 @@ public abstract class Polygon {
     }
 
     public abstract double surface();
+
 }
